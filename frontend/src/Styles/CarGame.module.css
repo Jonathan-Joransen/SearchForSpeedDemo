@@ -1,0 +1,44 @@
+.car_grid {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.car_container{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.car{
+    position: absolute;
+}
+
+.car img{
+    width: 6em;
+}
+
+.finish_line {
+    width: 5.98em;
+    height: 6em;
+    position: absolute;
+    left: 80vw;
+    border-right: solid black 3px;
+}
+
+.start_button {
+    z-index: 100;
+    height: 4em;
+    width: 4em;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 25px;
+}
+
+.start_button:hover {
+    background-color: rgba(66, 162, 66, 0.7)
+}

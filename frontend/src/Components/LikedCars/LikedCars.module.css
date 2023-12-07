@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Urbanist:wght@300;400&display=swap");
+.likedContainer {
+    padding: 0 1em;
+}
+
+.likedTitle {
+    font-size: 2.5em;
+    font-weight: 800;
+    text-align: center;
+    margin: 0 auto;
+    text-shadow: 2px -2px white;
+    font-family: "Lato";
+    padding-bottom: .4em;
+    border-bottom: 1px solid black;
+    width: 60%;
+}

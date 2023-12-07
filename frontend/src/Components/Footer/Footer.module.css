@@ -1,0 +1,15 @@
+.footerContainer {
+    box-shadow: inset 0px 0px 1px black;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    bottom: 0;
+    max-width: 100%;
+}
+
+.footerText {
+    color: black;
+    padding: .3em;
+    padding-right: 1em;
+}

@@ -1,0 +1,98 @@
+.planContainer {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
+  gap: 0.8em;
+  margin: 1em 0.8em;
+}
+
+.plan {
+  background-color: white;
+  box-shadow: 0 0.25em 1em rgb(0 0 0 / 10%);
+  border-radius: 25px;
+  padding: 2em;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.planPrice,
+.planTitle {
+  font-size: 2em;
+}
+
+.planPrice span{
+  text-decoration: line-through;
+  color:rgba(0, 0, 0, 0.8);
+}
+
+.planDetails {
+  font-size: 1em;
+}
+
+.planDetailsLabel {
+    margin-bottom: -.5em;
+    font-weight: 400;
+}
+
+.planDetails {
+  min-width: 24%;
+  min-height: 40%;
+  display: inline-flex;
+  flex-direction: column;
+  box-shadow: 0 0.25em 1em rgb(0 0 0 / 10%);
+  padding: .2em;
+  border-radius: 5px;
+}
+
+.detailsItem {
+  font-style: Helvetica, Verdana, sans-serif;
+  padding: 0.4em 0.2em;
+  font-weight: 300;
+  max-width: 25rem;
+}
+
+.detailsItem::marker{
+    content: "-  ";
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.detailsItem:last-child {
+  border-bottom: none;
+}
+
+.freeTrial {
+    text-align: end;
+    margin: 0 .6em;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.subscribeButton {
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0;
+  padding: 0.7em;
+  background-color: #ffec00;
+  color: black;
+  text-shadow: 2px -2px 0px white;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 0.25em 1em rgb(0 0 0 / 10%);
+  cursor: pointer;
+}
+
+.subscribeButton:hover {
+  background-color: rgba(255, 255, 0, 0.6);
+}
+
+@media (min-width: 50rem) {
+    .planContainer {
+        flex-direction: row;
+        gap: 3rem;
+    }
+}

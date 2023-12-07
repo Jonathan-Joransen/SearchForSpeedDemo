@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Urbanist:wght@300;400&display=swap");
+
+.pageBackground {
+  /* background-image: url("../../cars/boxblacklongheavyblur.png") ; */
+  background-image: linear-gradient(to bottom right, rgb(214, 216, 223), white) ;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.tablyBody {
+  width: 100%;
+  padding: 2em;
+}
+
+.cell,
+.yearCell {
+  font-size: .9em;
+  font-weight: bold !important;
+  padding: 2em 0 !important;
+}
+
+.yearCell {
+  padding-left: .4em !important;
+}
+
+.tableContainer {
+  padding: 1em;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-size: cover;
+  max-width: 50rem;
+}
+
+.tableWrapper {
+  width: 100%;
+}
+
+.alwaysOnDropdown,
+.alwaysOnDropdownInvalid {
+  appearance: none;
+  background: white;
+  overflow: hidden;
+  background: url("../../cars/simplechevron.png") no-repeat calc(100% - 1em) #fff;
+  background-size: 1.2em;
+  height: 3.5em;
+  min-width: 6rem;
+  width: 100%;
+  padding: 0 1em;
+  border-radius: 25px;
+  border: none;
+  box-shadow: 0 0.25em 1em rgb(0 0 0 / 10%);
+}
+
+.landingHeader,
+.searchPageHeader {
+  font-size: 2.5em;
+  font-weight: 800;
+  text-align: center;
+  margin: 0 auto;
+  text-shadow: 2px -2px white;
+  font-family: "Lato";
+}
+
+.searchPageHeader {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.timeSearchContainer,
+.timeSearchContainerInvalid {
+  background-color: white;
+  padding: 1em;
+  margin: 1em 0 ;
+  border-radius: 20px;
+  box-shadow: 0 0.25em 1em rgb(0 0 0 / 10%);
+}
+
+.timeSearchWrapper {
+  padding: 1em 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.searchButton, 
+.searchButtonFindOut {
+  min-height: 2em;
+  width: 100%;
+  padding: 0.5em 0;
+  background: #ffec00;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.5em;
+  font-weight: bold;
+  box-shadow: 0 0.25em 1em rgb(0 0 0 / 10%);
+  text-shadow: 2px -2px white;
+}
+
+.searchButtonFindOut {
+  font-size: 1em;
+  background: none;
+  max-width: 25rem;
+}
+
+.searchPageButtonContainer a {
+  width: 100%;
+  max-width: 25rem;
+}
+
+.searchButton:hover,
+.searchButtonFindOut:hover {
+  box-shadow: inset 0 0.1em 0.1em rgb(0 0 0 / 10%);
+  cursor: pointer;
+}
+
+.timeSearchContainerInvalid::before {
+  content: "*please select a make and a model";
+  color: red;
+}
+
+.buttonContainer,
+.searchPageButtonContainer {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
+  flex-direction: column;
+  max-width: 35rem;
+}
+
+.searchPageButtonContainer {
+  width: 100%;
+}
+
+.timeResultControls {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1em;
+  gap: 1.2em;
+  width: 100%;
+}
+
+.timeResultViewButton,
+.timeResultViewActive {
+  width: 3.5em;
+  max-width: 15%;
+  height: 3.5em;
+  max-height: 15%;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  box-shadow: 0 0.25em 1em rgb(0 0 0 / 10%);
+}
+
+.timeResultViewActive {
+  border: 1px solid #ffec00;
+}
+
+.timeResultViewButton img,
+.timeResultViewActive img {
+  max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.timeResultViewButton img:hover {
+    cursor: pointer;
+    transform: scale(1.01)
+}
+
+@media (min-width: 50rem) {
+  .timeSearchWrapper {
+    flex-direction: row;
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+  .cell {
+    padding: 2em;
+  }
+}

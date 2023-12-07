@@ -1,0 +1,46 @@
+.successContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.successWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 100%;
+  margin: 0.2em;
+  background: white;
+  gap: 0.3em;
+  border-radius: 25px;
+  box-shadow: 0 0.25em 1em rgb(0 0 0 / 10%);
+}
+
+.successMessage {
+  margin: 1em;
+  margin-bottom: 0.3em;
+  text-align: center;
+}
+
+.checkmark {
+  margin: 0.5em;
+  max-width: 100%;
+  max-height: 4rem;
+}
+
+.savedSearchesButton {
+  margin: 0 auto;
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0.5em;
+  padding: 0.7em;
+  background-color: #ffec00;
+  color: black;
+  text-shadow: 2px -2px 0px white;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 0.25em 1em rgb(0 0 0 / 10%);
+  cursor: pointer;
+}

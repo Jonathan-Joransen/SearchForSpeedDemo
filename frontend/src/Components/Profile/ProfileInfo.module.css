@@ -1,0 +1,92 @@
+.profileInfoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.profileInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 80%;
+  padding: 1em;
+}
+
+.profileInfoField {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0 0.25em 1em rgb(0 0 0 / 10%);
+  background: white;
+  border-radius: 5px;
+  padding: 1em;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 0.2em;
+}
+
+.profileInfoItemWrapper {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 1em auto;
+}
+
+.profileInfoItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 0.5em;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+
+.profileInfoItemHeader {
+  font-size: 2.2em;
+  text-align: center;
+  width: 100%;
+  font-weight: 700;
+  font-style: sans-serif;
+  text-shadow: 1px 1px white;
+}
+
+.profileInfoItemTitle {
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+  font-style: sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-shadow: 1px 1px white;
+}
+
+.editInfoWrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5em;
+}
+
+.editInfoInput {
+  margin: 0 0.5em;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 0.7em;
+  font-size: 1em;
+}
+
+.editInfoInput::placeholder {
+  color: black;
+  font-weight: 400;
+}
+
+.editInfoButtonWrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.5em;
+  margin-top: 0.5em;
+}

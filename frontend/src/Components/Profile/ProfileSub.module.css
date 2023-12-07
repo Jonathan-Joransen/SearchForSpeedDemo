@@ -1,0 +1,47 @@
+.profileSubContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profileSubItemHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2em;
+  margin-top: 2em;
+  font-weight: 700;
+  font-style: sans-serif;
+  text-shadow: 1px 1px white;
+}
+
+.profileSubWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.5em;
+  background-color: white;
+  padding: 2em;
+  border-radius: 5px;
+  box-shadow: 0 0.25em 1em rgb(0 0 0 / 10%);
+  margin: 1em;
+}
+
+.profileSubItem {
+  font-style: sans-serif;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.profileSubWrapper > button,
+.profileSubWrapper > a {
+  margin-top: 1em;
+  margin-left: auto;
+}
+
+.popupButtonWrapper {
+  padding: 2em;
+}

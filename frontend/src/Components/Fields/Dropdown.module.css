@@ -1,0 +1,54 @@
+.fancyDropdownTitleWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 100%;
+  background: white;
+  border-radius: 25px;
+  padding: .2em .2em;
+  box-shadow: 0 0.25em 1em rgb(0 0 0 / 10%);
+}
+
+.fancyDropdownTitleWrapper:hover {
+  cursor: pointer;
+}
+
+.fancyDropdownTitle {
+  font-size: 1.3em;
+  padding-left: .5em;
+  font-weight: 600;
+}
+
+.fancyDropdownTitleIcon {
+  height: 50%;
+  aspect-ratio: 1 / 1;
+  margin-left: 1em;
+  margin-right: .5em;
+}
+
+.fancyDropdownList {
+  box-shadow: 0 0.25em 1em rgb(0 0 0 / 10%);
+  background: white;
+  margin-top: .03rem;
+  width: 70%;
+  visibility: hidden;
+  position: absolute;
+  overflow: hidden;
+  z-index: 12;
+  border-radius: 8px;
+  padding: 1em;
+}
+
+.fancyDropdownListItem {
+  list-style: none;
+  color: black;
+  padding: .8em;
+  font-size: .9em;
+  font-weight: 600;
+}
+
+.fancyDropdownListItem:hover {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.776);
+  cursor: pointer;
+}

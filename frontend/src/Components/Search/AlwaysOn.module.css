@@ -1,0 +1,41 @@
+.alwaysOnWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.alwaysOnNumberInput,
+.alwaysOnNumberInvalidInput,
+.alwaysOnDropdown,
+.alwaysOnDropdownInvalid {
+  font-size: 1em;
+  font-weight: 400;
+  border: 1px solid black;
+  border-radius: 5px;
+  min-height: 2.5em;
+  width: 100%;
+  margin: 1em;
+  padding: 0.5em;
+}
+
+.alwaysOnDropdown,
+.alwaysOnDropdownInvalid {
+  background: white;
+  height: 3.5em;
+}
+
+.alwaysOnNumberInvalidInput,
+.alwaysOnDropdownInvalid {
+  border: 1px solid red;
+}
+
+.alwaysOnLabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  font-weight: 600;
+  font-style: sans-serif;
+}

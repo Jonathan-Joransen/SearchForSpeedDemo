@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Urbanist:wght@300;400&display=swap");
+.landingContainer {
+  margin: 0 auto;
+  padding: 0 1em;
+  min-height: 97vh;
+  background: url("../../cars/yellowback2.png");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.landingWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+.landingImage {
+  max-width: 100%;
+  max-height: 14rem;
+  border-radius: 25px;
+  box-sizing: border-box;
+  box-shadow: 0 0.25em 2em rgb(0 0 0 / 10%);
+}
+
+.landingHeader {
+  font-size: 2.5em;
+  font-weight: 800;
+  text-align: center;
+  margin: 0 auto;
+  text-shadow: 2px -2px white;
+  font-family: "Lato";
+}
+
+.landingSubtitle {
+  font-size: 1em;
+  font-weight: 300;
+  padding: 0.5em;
+  margin: 0 auto;
+  text-shadow: 2px -2px white;
+  font-family: "Lato";
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.goToSearchButton {
+  margin: 1.5em auto;
+  background: none;
+  padding: 0.3em 1em;
+  border: none;
+  border-radius: 20px;
+  font-size: 1.5em;
+  font-weight: bold;
+  box-shadow: 0 0.25em 1em rgb(0 0 0 / 10%);
+  text-shadow: 2px -2px white;
+}
+
+.goToSearchButton:hover {
+  background: white;
+  box-shadow: inset 0 0.1em 0.1em rgb(0 0 0 / 10%);
+  cursor: pointer;
+}
+
+.retailerContainer {
+  padding: 0.2em 1em;
+  max-width: 26rem;
+  margin: 0 auto;
+}
+
+.retailerWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.2em;
+  margin: 0 auto;
+}
+
+.retailerImage {
+    max-width: 100%;
+    max-height: 4rem;
+    margin: 0 auto;
+    padding: .1em;
+}
+
+.retailerSubtitle {
+  font-size: .9em;
+  font-weight: 300;
+  padding-top: 1.3em;
+  margin: 0 auto;
+  font-family: "Varela", "sans-serif";
+}
+
+.retailerHeader {
+  font-size: 2em;
+  font-weight: 800;
+  text-align: center;
+  margin: 0 auto;
+  font-style: sans-serif;
+  font-family: "Varela", "sans-serif";
+}
+
+@media (min-width: 50rem) {
+  .retailerContainer {
+      max-width: 80%;
+      grid-column: 1;
+      grid-row: 3 / 5;
+  }
+  .landingImage {
+    max-width: 50rem;
+    max-height: 100%;
+    grid-column: 2 /4 ;
+    grid-row: 1 / 5 ;
+    margin: 0 auto;
+  }
+  .landingWrapper {
+    display: grid;
+    row-gap: 3rem;
+    padding-top: 4rem;
+    grid-template-columns: 3fr 1fr 2fr;
+  }
+  .landingSubtitle {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .goToSearchButton {
+    margin-top: 2rem;
+  }
+}

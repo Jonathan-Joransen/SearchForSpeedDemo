@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+.titleContainer{
+    display: flex;
+    padding: 2em 1em;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.titleImage{
+    aspect-ratio: 1 / 1;
+    width: 20em;
+    justify-content: top;
+}
+
+.title {
+    font-size: 2em;
+    font-weight: bold;
+    justify-content: center;
+    color: black;font-family: 'Lato', sans-serif;
+}
+
+.subtitle {
+    color: black;
+    font-size: 1em;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
