@@ -4,7 +4,6 @@ import buttonStyles from './DrawBorderButton.module.scss'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import profileSubStyles from './ProfileSub.module.css';
-import CustomizedDialogs from './CancelPopUp.js';
 
 const ProfileSub = (props) => {
     const [date, setDate] = useState(new Date())
@@ -86,12 +85,6 @@ const ProfileSub = (props) => {
                     {props.user.subscription.type !== "Limited" && <button className={buttonStyles.drawBorder} onClick={handleManageBilling}>Manage Billing Info</button>}
                     <Link to="/Subscribe"><button className={buttonStyles.drawBorder}>Change Plan</button></Link>
                     {props.user.subscription.type !== "Limited" && <button className={buttonStyles.drawCancelBorder} onClick={(e) => setOpen(true)}>Cancel</button>}
-                    <CustomizedDialogs title="Are you sure?" open={open} handleClose={handleClose}>
-                        <div className={profileSubStyles.popupButtonWrapper}>
-                            <button className={buttonStyles.drawCancelBorder} onClick={(e) => setOpen(false)}>No</button>
-                            <button className={buttonStyles.drawCancelBorder} onClick={handleCancel}>Yes</button>
-                        </div>
-                    </CustomizedDialogs>
                 </div>
             </div>
         </div>
