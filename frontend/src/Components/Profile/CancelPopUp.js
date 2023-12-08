@@ -1,12 +1,6 @@
+import { Dialog, DialogContent, DialogTitle, IconButton, Typography, createStyles, withStyles } from '@mui/material';
 import React from 'react';
-import { createStyles, withStyles } from '@material-ui/core/styles';
-import Dialog from '@material-ui/core/Dialog';
-import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import MuiDialogContent from '@material-ui/core/DialogContent';
-import MuiDialogActions from '@material-ui/core/DialogActions';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
-import Typography from '@material-ui/core/Typography';
+import CloseIcon from '@mui/icons-material/Close';
 
 const styles = (theme) =>
   createStyles({
@@ -22,45 +16,37 @@ const styles = (theme) =>
     },
   });
 
-const DialogTitle = withStyles(styles)((props) => {
+const DialogTitleStyled = withStyles(styles)((props) => {
   const { children, classes, onClose, ...other } = props;
   return (
-    <MuiDialogTitle disableTypography className={classes.root} {...other}>
+    <DialogTitle disableTypography className={classes.root} {...other}>
       <Typography variant="h6">{children}</Typography>
       {onClose ? (
         <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
-          <CloseIcon />
+        <CloseIcon />
         </IconButton>
       ) : null}
-    </MuiDialogTitle>
+    </DialogTitle>
   );
 });
 
-const DialogContent = withStyles((theme) => ({
+const DialogContentStyled = withStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
   },
-}))(MuiDialogContent);
-
-const DialogActions = withStyles((theme) => ({
-  root: {
-    margin: 0,
-    padding: theme.spacing(1),
-  },
-}))(MuiDialogActions);
+}))(DialogContent);
 
 export default function CustomizedDialogs({children,title, handleClose, open}) {
 
   return (
     <div>
       <Dialog aria-labelledby="customized-dialog-title" open={open}>
-        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+        <DialogTitleStyled id="customized-dialog-title" onClose={handleClose}>
         {title}
-        </DialogTitle>
-        <DialogContent dividers>
+        </DialogTitleStyled>
+        <DialogContentStyled dividers>
           {children}
-        </DialogContent>
-       
+        </DialogContentStyled>
       </Dialog>
     </div>
   );

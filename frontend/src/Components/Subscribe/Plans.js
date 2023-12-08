@@ -2,8 +2,6 @@ import React from 'react';
 import  { useNavigate } from 'react-router-dom';
 import planStyles from './Plans.module.css';
 import Plan from './Plan.js';
-import { loadStripe } from "@stripe/stripe-js";
-import axios from 'axios';
 
 const Plans = (props) => {
     let navigate = useNavigate();
@@ -11,18 +9,8 @@ const Plans = (props) => {
     let limitedSubmit = () => {
         navigate("/SignUp");
     }
-    const stripePromise = loadStripe(
-        props.config.STRIPE_API_KEY
-    );
 
     let premiumSubmit = () => {
-        axios.post(`${props.config.baseApiUrl}/Subscribe`, {
-            priceId: props.config.premiumProductId,
-            email: props.user.email
-        }).then(async response => {
-            const stripe = await stripePromise;
-            await stripe.redirectToCheckout({ sessionId: response.data.id });
-        })
     }
     const limitedPlan = {
         price: "$0",

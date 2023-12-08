@@ -5,8 +5,7 @@ import SearchAdvancedOptions from './SearchAdvancedOptions.js';
 import AlwaysOnOptions from './AlwaysOnOptions.js';
 import ResultsPage from '../Results/ResultsPage.js';
 import axios from 'axios';
-import TextField from '@mui/material/TextField';
-import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
+import { Autocomplete, TextField, createFilterOptions } from '@mui/material';
 
 let Search = (props) => {
     const [showSearchAdvancedOptions, setShowSearchAdvancedOptions] = useState(false)
@@ -14,7 +13,6 @@ let Search = (props) => {
     const [loadingResults, setLoadingResults] = useState(false)
     const [showInvalidFields, setShowInvalidFields] = useState(false)
     const [cars, setCars] = useState([])
-    const [autoCompleteValue, setAutoCompleteValue] = useState("")
     const [zip, setZip] = useState("")
     const [dist, setDist] = useState(75)
     const [maxZeroToSixty, setMaxZeroToSixty] = useState(7)

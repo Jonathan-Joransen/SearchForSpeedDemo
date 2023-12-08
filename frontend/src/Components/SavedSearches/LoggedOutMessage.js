@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from '@material-ui/core/Button';
 import savedSearchesStyles from './SavedSearches.module.css'
 import { Link } from 'react-router-dom';
 

@@ -3,7 +3,6 @@ import loginStyles from './Login.module.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import RequestResetPassword from './RequestResetPassword.js';
-import GoogleAuthButton from './GoogleAuthButton.js'
 
 const LoginPage = (props) => {
     const [email, setEmail] = useState("")
@@ -92,9 +91,6 @@ const LoginPage = (props) => {
                             <button className={loginStyles.signUpButton} onClick={(e) => props.setShowSignUp(true)}>Sign Up</button>
                                 </Link>
                             <button className={loginStyles.loginButton} onClick={loginUser}>Log In</button>
-                        </div>
-                        <div className={loginStyles.buttonWrapper}>
-                            <GoogleAuthButton className={loginStyles.loginButton} imageClassName={loginStyles.googleLogo} {...props} setFieldsInvalid={setFieldsInvalid} buttonText="Sign In With Google" />
                         </div>
                         <div className={loginStyles.searchToggleOptions} onClick={() => setShowForgotPass(true)}><span>Forgot Password</span></div>
                     </div>

@@ -4,7 +4,7 @@ import buttonStyles from './DrawBorderButton.module.scss'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import profileSubStyles from './ProfileSub.module.css';
-import CustomizedDialogs from './CancelPopUp.js'
+import CustomizedDialogs from './CancelPopUp.js';
 
 const ProfileSub = (props) => {
     const [date, setDate] = useState(new Date())

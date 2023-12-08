@@ -1,7 +1,6 @@
 import loginStyles from './Login.module.css';
 import axios from 'axios';
 import React, { useState, useRef, useEffect } from 'react';
-import GoogleAuthButton from './GoogleAuthButton.js'
 import Header from '../Header/Header.js'
 
 let SignUp = (props) => {
@@ -93,7 +92,6 @@ let SignUp = (props) => {
                     <input ref={passwordRef} className={loginStyles.input} maxLength="50" type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)} />
                     <div className={loginStyles.buttonWrapper}>
                         <button className={loginStyles.signUpButton} onClick={registerUser}>Sign Up</button>
-                        <GoogleAuthButton {...props} imageClassName={loginStyles.googleLogo} className={loginStyles.signUpButton} setFieldsInvalid={setFieldsInvalid} buttonText="Sign Up With Google" />
                     </div>
                 </div>
             </div>
