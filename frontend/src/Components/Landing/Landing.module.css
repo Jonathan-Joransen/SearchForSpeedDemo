@@ -51,6 +51,7 @@
 }
 
 .goToSearchButton {
+  text-decoration: none;
   margin: 1.5em auto;
   background: white;
   padding: 0.3em 1em;
@@ -58,9 +59,9 @@
   border-radius: 20px;
   font-size: 1.5em;
   font-weight: bold;
+  color: black;
   box-shadow: 0 0.25em 1em rgb(0 0 0 / 10%);
   text-shadow: 2px -2px white;
-  text-decoration: none;
 }
 
 .goToSearchButton:hover {
