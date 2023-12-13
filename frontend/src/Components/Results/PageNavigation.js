@@ -18,7 +18,7 @@ const PageNavigation = ({ setCarIdxArr, carIdxArr, cars, resultsRef }) => {
     return (
         <>
             <div className={resultStyles.pageNavigationContainer}>
-                {carIdxArr[1] !== cars.length && <button className={resultStyles.pageNavigation} onClick={handleLoadMore}>Load More</button>}
+                {/* {carIdxArr[1] !== cars.length && <button className={resultStyles.pageNavigation} onClick={handleLoadMore}>Load More</button>} */}
                 <button className={resultStyles.pageNavigation} onClick={handleBackToTop}>Back To Top</button>
             </div>
         </>

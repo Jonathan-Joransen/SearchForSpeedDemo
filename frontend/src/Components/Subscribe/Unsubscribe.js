@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import checkmark from '../../cars/checked.png'
 import successStyle from './SuccessPage.module.css';
 import { useSearchParams } from 'react-router-dom';
-import axios from 'axios';
 
 let Unsubscribe = (props) => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -14,11 +13,11 @@ let Unsubscribe = (props) => {
     useEffect(() => {
         const auth = searchParams.get("fromEmail") === "true"
         if (!auth) {
-            axios.get(`${props.config.baseApiUrl}/Unsubscribe/Redirect`)
-                .then(response => {
-                    console.log(response.data)
-                    window.location.href = response.data.url
-                }).catch(error => console.log(error))
+            // axios.get(`${props.config.baseApiUrl}/Unsubscribe/Redirect`)
+            //     .then(response => {
+            //         console.log(response.data)
+            //         window.location.href = response.data.url
+            //     }).catch(error => console.log(error))
         }
     }, [])
 
@@ -30,19 +29,19 @@ let Unsubscribe = (props) => {
             return setSuccessMessage("Unable to unsubscribe from this search. You can contact us via email or remove the search manually from your saved searches.")
         }
 
-        axios.get(`${props.config.baseApiUrl}/Unsubscribe?id=${id}&searchId=${searchId}`)
-            .then(response => {
-                console.log(response.data)
-                if (response.status === 200) {
-                    setSuccessMessage("You Have Successfully Unsubscribed. You will no longer recieve emails for that search.")
-                    setShowSuccess(true)
-                }
-            }).catch((err) => {
-                console.error(err)
-                if (err.response.status < 550 && err.response.status >= 400) {
-                    setSuccessMessage("Unable to unsubscribe from this search. You can contact us via email or remove the search manually from your saved searches.")        
-                }
-            })
+        // axios.get(`${props.config.baseApiUrl}/Unsubscribe?id=${id}&searchId=${searchId}`)
+        //     .then(response => {
+        //         console.log(response.data)
+        //         if (response.status === 200) {
+        //             setSuccessMessage("You Have Successfully Unsubscribed. You will no longer recieve emails for that search.")
+        //             setShowSuccess(true)
+        //         }
+        //     }).catch((err) => {
+        //         console.error(err)
+        //         if (err.response.status < 550 && err.response.status >= 400) {
+        //             setSuccessMessage("Unable to unsubscribe from this search. You can contact us via email or remove the search manually from your saved searches.")        
+        //         }
+        //     })
     }, [])
 
     return (

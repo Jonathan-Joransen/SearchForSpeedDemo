@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
-import axios from 'axios';
 import timeStyles from './Times.module.css';
 import { AutoFillDropdown } from '../Fields/Inputs.js';
 import { useSearchParams } from 'react-router-dom';
 import { Dropdown } from '../Fields/Dropdown.js';
+import StaticCars from '../../data/cars';
 
 const TimeSearch = (props) => {
     const [border, setBorder] = useState("none")
@@ -25,33 +25,22 @@ const TimeSearch = (props) => {
     }
 
     useEffect(() => {
-        axios.get(`${props.config.baseApiUrl}/Makes`).then((res) => {
-            setMakes(res.data.map(x => x.make))
-        })
+        setMakes([...new Set(StaticCars.map(x => x["make"]))])
     }, [])
 
     useEffect(() => {
         let makeParam = searchParams.get("make")
         let modelParam = searchParams.get("model")
         let yearParam = searchParams.get("year")
-
-        axios
-            .post(`${props.config.baseApiUrl}/Times`, {
-                make: makeParam,
-                model: modelParam,
-                year: yearParam
-            })
-            .then(res => {
-                if (res.data.length > 0) {
-                    updateModels(makeParam)
-                    updateYears(makeParam, modelParam, yearParam)
-                    setFieldsValid()
-                    setMake(makeParam)
-                    setModel(modelParam)
-                    props.setCars(res.data)
-                }
-            })
-            .catch((err) => console.log(err))
+        let data = []
+        if (data.length > 0) {
+            updateModels(makeParam)
+            updateYears(makeParam, modelParam, yearParam)
+            setFieldsValid()
+            setMake(makeParam)
+            setModel(modelParam)
+            props.setCars(data)
+        }
     }, [])
 
     let updateMake = (currMake) => {
@@ -88,35 +77,37 @@ const TimeSearch = (props) => {
         if (!currMake) {
             return
         }
-        setModel("")
-
-        axios.get(`${props.config.baseApiUrl}/Models?make=${currMake}`).then((res) => {
-            setModels(res.data.map(x => {
-                let modArr = x.model.split(" ")
-                let model = ""
-                for (var mod of modArr) {
-                    if (mod.length < 4) {
-                        model += mod.toUpperCase() + " "
-                    }
-                    else {
-                        model += mod[0].toUpperCase() + mod.substring(1, mod.length) + " "
-                    }
+        setModels([...new Set(StaticCars.filter(x => x["make"].toLowerCase() === currMake.toLowerCase()).map(x => {
+            let modArr = x.model.split(" ")
+            let model = ""
+            for (var mod of modArr) {
+                if (mod.length < 4) {
+                    model += mod.toUpperCase() + " "
                 }
-                return model.trim()
-            }))
-        })
+                else {
+                    model += mod[0].toUpperCase() + mod.substring(1, mod.length) + " "
+                }
+            }
+            return model.trim()
+        }))])
     }
 
     let updateYears = (currMake, currModel, currYear) => {
-        axios.get(`${props.config.baseApiUrl}/Years?model=${currModel}&make=${currMake}`).then((res) => {
-            let years = res.data.map(x => {
-                if (currYear !== null && Number(currYear) === x.year) {
-                    return createYearOption(x.year, true)
-                }
-                return createYearOption(x.year)
-            })
-            setYears([createYearOption("All"), ...years])
-        })
+        let years = [];
+        let modelsOfCar = StaticCars.filter(x => x.model.toLowerCase() === currModel.toLowerCase())
+        for(let i = 0; i < modelsOfCar.length; i++) {
+            let x = modelsOfCar[i]
+            let options = null;
+            if (currYear !== null && Number(currYear) === x.year) {
+                options = createYearOption(x.year, true)
+            } else {
+                options = createYearOption(x.year)
+            }
+            if(years.filter(a => a.val == x.year).length === 0) {
+                years.push(options)
+            }
+        }
+        setYears([createYearOption("All"), ...years])
     }
 
     let areFieldsValid = () => {
@@ -140,18 +131,13 @@ const TimeSearch = (props) => {
         let fieldsAreValid = areFieldsValid()
         if (!fieldsAreValid) {
             return setFieldsInvalid()
+        } else {
+            setFieldsValid()
         }
-        axios
-            .post(`${props.config.baseApiUrl}/Times`, {
-                make: make,
-                model: model,
-                year: year
-            })
-            .then(res => {
-                setFieldsValid()
-                props.setCars(res.data)
-            })
-            .catch((err) => console.log(err))
+        console.log(model, year)
+        let carTimes = StaticCars.filter(x => x.model.toLowerCase() === model.toLowerCase() && String(x.year) === year)
+        console.log(carTimes)
+        props.setCars(carTimes)
     }
 
     return (

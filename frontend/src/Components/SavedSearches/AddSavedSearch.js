@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
 import savedSearchStyles from './SavedSearch.module.css'
-import axios from 'axios';
 import { CsvTextField } from '../Fields/Inputs.js';
 import buttonStyles from '../Profile/DrawBorderButton.module.scss'
 
@@ -67,33 +66,33 @@ const SavedSearch = (props) => {
         let isValidData = checkIsValidData()
         if (isValidData){
             setFieldLimits()
-            axios.post(`${props.config.baseApiUrl}/User/Search`, {
-                email: props.user.email,
-                search: {
-                    searchId: GetSearchId(),
-                    zip: zip,
-                    maxZeroToSixty: maxZeroToSixty,
-                    bodyType: body === "all" ? "undefined" : body,
-                    radius: dist,
-                    transmission: transmission === "all" ? "undefined" : transmission,
-                    saleBy: saleBy === "all" ? "undefined" : saleBy,
-                    saleType: includeAuctionSale ? "any" : "classified",
-                    minMiles: minMileage,
-                    maxMiles: maxMileage === "all" ? "undefined" : maxMileage,
-                    minYear: minYear,
-                    maxYear: maxYear === "all" ? "undefined" : maxYear,
-                    minPrice: minPrice,
-                    maxPrice: maxPrice
-                }
-            }, {headers: {
-                "authorization": `Bearer ${window.sessionStorage.getItem("token")}`
-            }}).then(props.setAddSearch([])).catch((err) => {
-                console.error(err)                
-                if (err.response.status < 500 && err.response.status >= 400){
-                    props.logoutUser()
-                }
-            })
-           props.handleAddSearch() 
+            // axios.post(`${props.config.baseApiUrl}/User/Search`, {
+            //     email: props.user.email,
+            //     search: {
+            //         searchId: GetSearchId(),
+            //         zip: zip,
+            //         maxZeroToSixty: maxZeroToSixty,
+            //         bodyType: body === "all" ? "undefined" : body,
+            //         radius: dist,
+            //         transmission: transmission === "all" ? "undefined" : transmission,
+            //         saleBy: saleBy === "all" ? "undefined" : saleBy,
+            //         saleType: includeAuctionSale ? "any" : "classified",
+            //         minMiles: minMileage,
+            //         maxMiles: maxMileage === "all" ? "undefined" : maxMileage,
+            //         minYear: minYear,
+            //         maxYear: maxYear === "all" ? "undefined" : maxYear,
+            //         minPrice: minPrice,
+            //         maxPrice: maxPrice
+            //     }
+            // }, {headers: {
+            //     "authorization": `Bearer ${window.sessionStorage.getItem("token")}`
+            // }}).then(props.setAddSearch([])).catch((err) => {
+            //     console.error(err)                
+            //     if (err.response.status < 500 && err.response.status >= 400){
+            //         props.logoutUser()
+            //     }
+            // })
+        //    props.handleAddSearch() 
         }
     }
 

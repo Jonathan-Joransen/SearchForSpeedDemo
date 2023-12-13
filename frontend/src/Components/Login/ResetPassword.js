@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 import resetStyles from './ResetStyles.module.css'
 
@@ -46,15 +45,15 @@ const ResetPassword = (props) => {
         let email = searchParams.get('email')
         let arePasswordsValid = validatePasswords()
         if (arePasswordsValid) {
-            axios.post(`${props.config.baseApiUrl}/User/ResetPassword`, {
-                id: id,
-                email: email,
-                newPassword: newPass
-            }).then(res => {
-                setPasswordReset(true)
-            }).catch(err => {
-                console.log(err.response.message)
-            })
+            // axios.post(`${props.config.baseApiUrl}/User/ResetPassword`, {
+            //     id: id,
+            //     email: email,
+            //     newPassword: newPass
+            // }).then(res => {
+            //     setPasswordReset(true)
+            // }).catch(err => {
+            //     console.log(err.response.message)
+            // })
         }
         else {
             setFieldsInvalid()

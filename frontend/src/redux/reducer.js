@@ -8,7 +8,6 @@ import User from '../Model/User.js'
 import Subscription from '../Model/Subscription.js'
 import { combineReducers } from 'redux';
 import Search from '../Model/Search.js';
-import axios from 'axios';
 
 const pages = (state = _pages) => {
     return state
@@ -28,14 +27,14 @@ const config = (state = _config) => {
 
 let GetSearches = async (email) => {
     return (new Promise(resolve => {
-        axios.get(`${_config.baseApiUrl}/User/Search?email=${email}`).then(response => {
-            let searches = []
-            for (let search of response.data) {
-                let currSearch = search.Item.searchParams.M
-                searches.push(new Search(currSearch.zip.S, currSearch.maxPrice.S, currSearch.dist.S))
-            }
-            resolve(searches)
-        })
+        // axios.get(`${_config.baseApiUrl}/User/Search?email=${email}`).then(response => {
+        //     let searches = []
+        //     for (let search of response.data) {
+        //         let currSearch = search.Item.searchParams.M
+        //         searches.push(new Search(currSearch.zip.S, currSearch.maxPrice.S, currSearch.dist.S))
+        //     }
+            resolve(null)
+        // })
     }))
 }
 

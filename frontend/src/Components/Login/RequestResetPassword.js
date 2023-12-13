@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import loginStyles from './Login.module.css';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const RequestResetPassword = (props) => {
@@ -28,21 +27,21 @@ const RequestResetPassword = (props) => {
         let isValidEmail = validateEmail(email)
         if (isValidEmail) {
             setEmailSending(true)
-            axios.post(`${props.config.baseApiUrl}/User/ForgotPassword`, {
-                email: email
-            }).then(() => {
-                setShowInvalid(false)
-            }).catch(err => {
-                console.log(err.response.status)
-                if (err.response.status === 404) {
-                    setWrongEmail(true)
-                    setEmailSending(false)
-                    emailRef.current.className = loginStyles.inputInvalid
-                }
-                else {
-                    setSentMessage(`Unable to send email. Please contact support at ${props.config.supportEmail}`)
-                }
-            })
+            // axios.post(`${props.config.baseApiUrl}/User/ForgotPassword`, {
+            //     email: email
+            // }).then(() => {
+            //     setShowInvalid(false)
+            // }).catch(err => {
+            //     console.log(err.response.status)
+            //     if (err.response.status === 404) {
+            //         setWrongEmail(true)
+            //         setEmailSending(false)
+            //         emailRef.current.className = loginStyles.inputInvalid
+            //     }
+            //     else {
+            //         setSentMessage(`Unable to send email. Please contact support at ${props.config.supportEmail}`)
+            //     }
+            // })
         }
         else {
             setFieldsInvalid()

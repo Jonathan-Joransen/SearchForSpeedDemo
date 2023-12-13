@@ -77,6 +77,10 @@
   text-shadow: 2px -2px white;
 }
 
+.searchButton:hover {
+  cursor: pointer;
+}
+
 .searchToggleOptions {
   margin-right: 1em;
   height: 2em;

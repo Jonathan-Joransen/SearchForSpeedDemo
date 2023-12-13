@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import profileInfoStyles from './ProfileInfo.module.css'
 import ProfileInfoItem from './ProfileInfoItem.js'
 import EditInfoItem from './EditInfoItem.js'
-import axios from 'axios';
 
 const ProfileInfo = (props) => {
     const [showEditPassword, setShowEditPassword] = useState(false)
@@ -27,62 +26,62 @@ const ProfileInfo = (props) => {
     }
 
     let updatePassword = () => {
-        axios.post(`${props.config.baseApiUrl}/Update`, {
-            user: {
-                email: props.user.email,
-                password: password, 
-                newPassword: newPassword 
-            }
-        }, {headers: {
-            "authorization": `Bearer ${window.sessionStorage.getItem("token")}`
-        }}).catch((err) => {
-            console.error(err)                
-            if (err.response.status < 500 && err.response.status >= 400){
-                props.logoutUser()
-            }
-        })
+        // axios.post(`${props.config.baseApiUrl}/Update`, {
+        //     user: {
+        //         email: props.user.email,
+        //         password: password, 
+        //         newPassword: newPassword 
+        //     }
+        // }, {headers: {
+        //     "authorization": `Bearer ${window.sessionStorage.getItem("token")}`
+        // }}).catch((err) => {
+        //     console.error(err)                
+        //     if (err.response.status < 500 && err.response.status >= 400){
+        //         props.logoutUser()
+        //     }
+        // })
     }
 
     let updateEmail = () => {
-            axios.post(`${props.config.baseApiUrl}/Update`, {
-                user: {
-                    ...props.user, 
-                    newEmail: newEmail 
-                }
-            }, {headers: {
-                "authorization": `Bearer ${window.sessionStorage.getItem("token")}`
-            }}).then(res => {
-                props.setUser(res.data.user)
-            }).catch((err) => {
-                console.error(err)                
-                if (err.response.status < 500 && err.response.status >= 400){
-                    props.logoutUser()
-                }
-            })
+            // axios.post(`${props.config.baseApiUrl}/Update`, {
+            //     user: {
+            //         ...props.user, 
+            //         newEmail: newEmail 
+            //     }
+            // }, {headers: {
+            //     "authorization": `Bearer ${window.sessionStorage.getItem("token")}`
+            // }}).then(res => {
+            //     props.setUser(res.data.user)
+            // }).catch((err) => {
+            //     console.error(err)                
+            //     if (err.response.status < 500 && err.response.status >= 400){
+            //         props.logoutUser()
+            //     }
+            // })
     }
 
     let updateName = () => {
-            axios.post(`${props.config.baseApiUrl}/Update`, {
-                user: {
-                    ...props.user, 
-                    newFirstName: newFirstName, 
-                    newLastName: newLastName 
-                }
-            }, {headers: {
-                "authorization": `Bearer ${window.sessionStorage.getItem("token")}`
-            }}).then(res => {
-                props.setUser(
-                    {
-                        ...props.user,
-                         firstName: res.data.firstName,
-                         lastName: res.data.lastName
-                    })
-            }).catch((err) => {
-                console.error(err)                
-                if (err.response.status < 500 && err.response.status >= 400){
-                    props.logoutUser()
-                }
-            })
+            // axios.post(`${props.config.baseApiUrl}/Update`, {
+            //     user: {
+            //         ...props.user, 
+            //         newFirstName: newFirstName, 
+            //         newLastName: newLastName 
+            //     }
+            // }, {headers: {
+            //     "authorization": `Bearer ${window.sessionStorage.getItem("token")}`
+            // }}).then(res => {
+            //     props.setUser(
+            //         {
+            //             ...props.user,
+            //              firstName: res.data.firstName,
+            //              lastName: res.data.lastName
+            //         })
+            // }).catch((err) => {
+            //     console.error(err)                
+            //     if (err.response.status < 500 && err.response.status >= 400){
+            //         props.logoutUser()
+            //     }
+            // })
     }
 
     return (

@@ -2,7 +2,6 @@ import Header from '../Header/Header.js';
 import Footer from '../Footer/Footer.js';
 import savedSearchesStyles from './SavedSearches.module.css'
 import SavedSearch from './SavedSearch.js';
-import axios from 'axios';
 import AddSavedSearch from './AddSavedSearch.js';
 import React, { useState, useEffect } from 'react'
 import Search from '../../Model/Search.js';
@@ -17,50 +16,50 @@ const SavedSearches = (props) => {
 
     let GetSearches = async (email) => {
         return (new Promise(resolve => {
-            axios.get(`${props.config.baseApiUrl}/User/Search?email=${email}`, {
-                headers: {
-                    "authorization": `Bearer ${window.sessionStorage.getItem("token")}`
-                }
-            }).then(response => {
-                let searches = []
-                for (let search of response.data) {
-                    let isObjectEmpty = search?.Item?.searchParams?.M === undefined ? true : false;
-                    if (!isObjectEmpty) {
-                        let currSearch = search.Item.searchParams.M
-                        searches.push(new Search(
-                            currSearch.zip.S,
-                            currSearch.radius.S,
-                            currSearch.maxPrice.S,
-                            currSearch.maxZeroToSixty.S,
-                            search.Item.searchId.S,
-                            currSearch?.bodyType?.S === "undefined" ? "all" : currSearch?.bodyType?.S ?? "all",
-                            currSearch?.transmission?.S === "undefined" ? "all" : currSearch?.transmission?.S ?? "all",
-                            currSearch?.saleBy?.S === "undefined" ? "all" : currSearch?.saleBy?.S ?? "all",
-                            currSearch?.saleType?.S === "auction",
-                            currSearch?.minMileage?.S ?? 0,
-                            currSearch?.maxMileage?.S ?? "all",
-                            currSearch?.minYear?.S ?? "all",
-                            currSearch?.maxYear?.S === "undefined" ? "all" : currSearch?.maxYear?.S ?? new Date().getFullYear(),
-                            currSearch?.minPrice?.S ?? "all",
-                        ))
-                    }
-                }
-                resolve(searches)
-            }).catch((err) => {
-                console.error(err)
-                if (err.response.status < 500 && err.response.status >= 400) {
-                    props.logoutUser()
-                }
-            })
+            // axios.get(`${props.config.baseApiUrl}/User/Search?email=${email}`, {
+            //     headers: {
+            //         "authorization": `Bearer ${window.sessionStorage.getItem("token")}`
+            //     }
+            // }).then(response => {
+            //     let searches = []
+            //     for (let search of response.data) {
+            //         let isObjectEmpty = search?.Item?.searchParams?.M === undefined ? true : false;
+            //         if (!isObjectEmpty) {
+            //             let currSearch = search.Item.searchParams.M
+            //             searches.push(new Search(
+            //                 currSearch.zip.S,
+            //                 currSearch.radius.S,
+            //                 currSearch.maxPrice.S,
+            //                 currSearch.maxZeroToSixty.S,
+            //                 search.Item.searchId.S,
+            //                 currSearch?.bodyType?.S === "undefined" ? "all" : currSearch?.bodyType?.S ?? "all",
+            //                 currSearch?.transmission?.S === "undefined" ? "all" : currSearch?.transmission?.S ?? "all",
+            //                 currSearch?.saleBy?.S === "undefined" ? "all" : currSearch?.saleBy?.S ?? "all",
+            //                 currSearch?.saleType?.S === "auction",
+            //                 currSearch?.minMileage?.S ?? 0,
+            //                 currSearch?.maxMileage?.S ?? "all",
+            //                 currSearch?.minYear?.S ?? "all",
+            //                 currSearch?.maxYear?.S === "undefined" ? "all" : currSearch?.maxYear?.S ?? new Date().getFullYear(),
+            //                 currSearch?.minPrice?.S ?? "all",
+            //             ))
+            //         }
+            //     }
+            //     resolve(searches)
+            // }).catch((err) => {
+            //     console.error(err)
+            //     if (err.response.status < 500 && err.response.status >= 400) {
+            //         props.logoutUser()
+            //     }
+            // })
         }))
     }
 
-    useEffect(async () => {
-        if (props.user.loggedIn) {
-            let newSearch = await GetSearches(props.user.email)
-            setSearches([...newSearch])
-        }
-    }, [addSearch])
+    // useEffect(async () => {
+    //     if (props.user.loggedIn) {
+    //         let newSearch = await GetSearches(props.user.email)
+    //         setSearches([...newSearch])
+    //     }
+    // }, [addSearch])
 
     let handleAddSearch = () => {
         buttonValue === "+" ? setButtonValue("-") : setButtonValue("+")

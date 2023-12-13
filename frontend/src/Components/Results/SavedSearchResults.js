@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ResultsPage from './ResultsPage.js';
 import resultStyles from './Result.module.css'
-import axios from 'axios';
 import Header from '../Header/Header.js';
 import Footer from '../Footer/Footer.js';
 import { useSearchParams } from 'react-router-dom';
@@ -25,23 +24,6 @@ const SavedSearchResults = (props) => {
         }
         return details;
     }
-
-    useEffect(() => {
-        let searchId = searchParams.get('search')
-        let date = searchParams.get('search2')
-        let url = `${props.config.baseApiUrl}/Results?searchId=${searchId}&date=${date}`
-        axios.get(url).then(res => {
-            res.data.map((car, idx) => {
-                car.link = car.M.link.S
-                car.image = car.M.image.S
-                car.details = setDetails(car)
-                car.placement = idx + 1
-                car.title = `${car.M.year.S} ${car.M.make.S} ${car.M.model.S}`
-            })
-            setCars(res.data)
-        })
-    }, [])
-
 
     return (
         <div>

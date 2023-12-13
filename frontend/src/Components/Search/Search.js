@@ -4,8 +4,8 @@ import searchOptionsStyles from './SearchOptions.module.css';
 import SearchAdvancedOptions from './SearchAdvancedOptions.js';
 import AlwaysOnOptions from './AlwaysOnOptions.js';
 import ResultsPage from '../Results/ResultsPage.js';
-import axios from 'axios';
 import { Autocomplete, TextField, createFilterOptions } from '@mui/material';
+import { GetCars } from '../../utils/CarsService';
 
 let Search = (props) => {
     const [showSearchAdvancedOptions, setShowSearchAdvancedOptions] = useState(false)
@@ -97,22 +97,17 @@ let Search = (props) => {
         let areFieldsValid = validateFields()
         let searchParams = setSearchParams()
         if (areFieldsValid) {
-            setLoading(true)
-            axios.post(`${props.config.baseApiUrl}/Cars`, searchParams).then(res => {
-                res.data.map((car, idx) => {
-                    car.details = setDetails(car)
-                    car.placement = idx + 1
-                    car.title = `${car.year} ${car.make} ${car.model}`
-                })
-                setCars(res.data)
-                setLoading(false)
-                setShowResults(true)
-            }).catch(err => {
-                console.log(err)
-                setCars([])
-                setLoading(false)
-                setShowResults(true)
+            // axios.post(`${props.config.baseApiUrl}/Cars`, searchParams).then(res => {
+            let data = GetCars();
+            data.map((car, idx) => {
+                car.details = setDetails(car)
+                car.placement = idx + 1
+                car.title = `${car.year} ${car.make} ${car.model}`
             })
+            console.log(data)
+            setCars(data)
+            setLoading(false)
+            setShowResults(true)
         }
     }
 

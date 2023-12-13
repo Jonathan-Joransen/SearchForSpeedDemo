@@ -8,7 +8,7 @@ const ResultsPage = (props) => {
     const [carIdxArr, setCarIdxArr] = useState([0, 10])
     const [carSub, setCarSub] = useState(props.cars.slice(carIdxArr[0], carIdxArr[1]))
     const resultsRef = useRef()
-
+    console.log(props.cars)
     useEffect(() => {
         resultsRef?.current.scrollIntoView({ behavior: 'smooth', block: "start", inline: "start"  })
     }, [])

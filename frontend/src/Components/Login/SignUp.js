@@ -1,5 +1,5 @@
 import loginStyles from './Login.module.css';
-import axios from 'axios';
+// import axios from 'axios';
 import React, { useState, useRef, useEffect } from 'react';
 import Header from '../Header/Header.js'
 
@@ -50,28 +50,28 @@ let SignUp = (props) => {
 
     let registerUser = () => {
         let areFieldsValid = AreFieldsValid()
-        if (areFieldsValid) {
-            axios.post(`${baseUrl}/Register`, {
-                user: {
-                    email: email,
-                    password: password,
-                    firstName: firstName,
-                    lastName: lastName,
-                    subscription: { ...props.user.subscription }
-                }
-            }).then(res => {
-                if (res.data.userExists) {
-                    setUserExists(true)
-                }
-                else {
-                    setUserExists(false)
-                    props.setShowSignUp(false)
-                }
-            })
-        }
-        else {
-            setFieldsInvalid()
-        }
+        // if (areFieldsValid) {
+        //     axios.post(`${baseUrl}/Register`, {
+        //         user: {
+        //             email: email,
+        //             password: password,
+        //             firstName: firstName,
+        //             lastName: lastName,
+        //             subscription: { ...props.user.subscription }
+        //         }
+        //     }).then(res => {
+        //         if (res.data.userExists) {
+        //             setUserExists(true)
+        //         }
+        //         else {
+        //             setUserExists(false)
+        //             props.setShowSignUp(false)
+        //         }
+        //     })
+        // }
+        // else {
+        //     setFieldsInvalid()
+        // }
     }
 
     return (

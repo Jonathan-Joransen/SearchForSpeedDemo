@@ -7,12 +7,9 @@ import carscom from '../../cars/carscom.png';
 import truecar from '../../cars/truecar.png';
 import carsoup from '../../cars/carsoup.png';
 import carsdirect from '../../cars/carsdirect.png';
+import { Link } from 'react-router-dom';
 
 const Landing = (props) => {
-    let goToSearch = () => {
-        props.searchRef?.current.scrollIntoView({ behavior: 'smooth', block: "center" })
-    }
-
     return (
         <div className={landStyles.landingContainer}>
             <div className={landStyles.landingWrapper}>
@@ -33,7 +30,7 @@ const Landing = (props) => {
                 </div>
             </div>
             <div className={landStyles.buttonWrapper}>
-            <button id="goToSearch" className={landStyles.goToSearchButton} onClick={goToSearch}>Start Searching</button>
+            <Link to="Search" className={landStyles.goToSearchButton}>Start Searching</Link>
         </div>
         </div>
     )

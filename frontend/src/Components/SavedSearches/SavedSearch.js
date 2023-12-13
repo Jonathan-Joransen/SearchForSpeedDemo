@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import savedSearchStyles from './SavedSearch.module.css'
@@ -22,36 +21,36 @@ const SavedSearch = (props) => {
     const [latestUnix, setLatestUnix] = useState()
 
     useEffect(() => {
-        axios.get(`${props.config.baseApiUrl}/User/Search/Latest?searchId=${props.dbSearchId}`, {
-            headers: {
-                "authorization": `Bearer ${window.sessionStorage.getItem("token")}`
-            }
-        }).then(res => {
-                setLatestUnix(res.data.date)
-            }).catch((err) => {
-                console.error(err)                
-                if (err.response.status < 500 && err.response.status >= 400){
-                    props.logoutUser()
-                }
-            })
+        // axios.get(`${props.config.baseApiUrl}/User/Search/Latest?searchId=${props.dbSearchId}`, {
+        //     headers: {
+        //         "authorization": `Bearer ${window.sessionStorage.getItem("token")}`
+        //     }
+        // }).then(res => {
+        //         setLatestUnix(res.data.date)
+        //     }).catch((err) => {
+        //         console.error(err)                
+        //         if (err.response.status < 500 && err.response.status >= 400){
+        //             props.logoutUser()
+        //         }
+        //     })
     }, [])
 
     let deleteSearch = () => {
-        axios.post(`${props.config.baseApiUrl}/User/Search/Remove`, {
-            searchId: props.dbSearchId,
-            email: props.email
-        }, {
-            headers: {
-                "authorization": `Bearer ${window.sessionStorage.getItem("token")}`
-            }
-        }).then(res => {
-            props.setAddSearch(props.dbSearchId)
-        }).catch((err) => {
-            console.error(err)                
-            if (err.response.status < 500 && err.response.status >= 400){
-                props.logoutUser()
-            }
-        })
+        // axios.post(`${props.config.baseApiUrl}/User/Search/Remove`, {
+        //     searchId: props.dbSearchId,
+        //     email: props.email
+        // }, {
+        //     headers: {
+        //         "authorization": `Bearer ${window.sessionStorage.getItem("token")}`
+        //     }
+        // }).then(res => {
+        //     props.setAddSearch(props.dbSearchId)
+        // }).catch((err) => {
+        //     console.error(err)                
+        //     if (err.response.status < 500 && err.response.status >= 400){
+        //         props.logoutUser()
+        //     }
+        // })
     }
 
     return (

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import checkmark from '../../cars/checked.png'
 import successStyle from './SuccessPage.module.css';
 import { useSearchParams } from 'react-router-dom';
-import axios from 'axios';
 
 let Success = (props) => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -12,20 +11,20 @@ let Success = (props) => {
     const [showSuccess, setShowSuccess] = useState(true);
 
     useEffect(() => {
-        const sessionId = searchParams.get("session_id")
-        axios.get(`${props.config.baseApiUrl}/Subscribe/Success?sessionId=${sessionId}&email=${props.user.email}`)
-            .then(response => {
-                console.log(response.data)
-                if (response.status === 200) {
-                    setSuccessMessage("You Have Successfully Subscribed")
-                    setShowSuccess(true)
-                }
-            }).catch((err) => {
-                console.error(err)                
-                if (err.response.status < 500 && err.response.status >= 400){
-                    props.logoutUser()
-                }
-            })
+        // const sessionId = searchParams.get("session_id")
+        // axios.get(`${props.config.baseApiUrl}/Subscribe/Success?sessionId=${sessionId}&email=${props.user.email}`)
+        //     .then(response => {
+        //         console.log(response.data)
+        //         if (response.status === 200) {
+        //             setSuccessMessage("You Have Successfully Subscribed")
+        //             setShowSuccess(true)
+        //         }
+        //     }).catch((err) => {
+        //         console.error(err)                
+        //         if (err.response.status < 500 && err.response.status >= 400){
+        //             props.logoutUser()
+        //         }
+        //     })
     }, [])
 
     return (

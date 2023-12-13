@@ -3,7 +3,6 @@ import resultStyles from './TimeSheetResult.module.css';
 import heartOutline from '../../cars/heartoutlinetransparent.png'
 import heartFilled from '../../cars/heartfilledtransparent.png'
 import infoIcn from '../../cars/information.png'
-import axios from 'axios';
 
 const TimeSheetResult = (props) => {
     let carTitle = `${props.car.year} ${props.car.make} ${props.car.model}`
@@ -33,16 +32,16 @@ const TimeSheetResult = (props) => {
     let updateLikedCars = () => {
         const likedCars = localStorage.getItem('likedCars')
         let currCars = JSON.parse(likedCars)
-        axios.post(`${props.config.baseApiUrl}/LikedCars`, {
-            email: props.user.email,
-            likedCars: currCars
-        }, {
-            headers: {
-                "authorization": `Bearer ${window.sessionStorage.getItem("token")}`
-            }
-        }).catch((err) => {
-            console.error(err)
-        })
+        // axios.post(`${props.config.baseApiUrl}/LikedCars`, {
+        //     email: props.user.email,
+        //     likedCars: currCars
+        // }, {
+        //     headers: {
+        //         "authorization": `Bearer ${window.sessionStorage.getItem("token")}`
+        //     }
+        // }).catch((err) => {
+        //     console.error(err)
+        // })
     }
 
     let handleSaveCar = () => {

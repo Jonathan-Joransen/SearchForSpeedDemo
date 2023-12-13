@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import resultStyles from './TimeResult.module.css';
 import heartOutline from '../../cars/heartoutlinetransparent.png'
 import heartFilled from '../../cars/heartfilledtransparent.png'
-import axios from 'axios';
 
 let TimeResult = (props) => {
     const [heart, setHeart] = useState(heartOutline)
@@ -29,17 +28,6 @@ let TimeResult = (props) => {
 
     let updateLikedCars = () => {
         const likedCars = localStorage.getItem('likedCars')
-        let currCars = JSON.parse(likedCars)
-        axios.post(`${props.config.baseApiUrl}/LikedCars`, {
-            email: props.user.email,
-            likedCars: currCars
-        }, {
-            headers: {
-                "authorization": `Bearer ${window.sessionStorage.getItem("token")}`
-            }
-        }).catch((err) => {
-            console.error(err)
-        })
     }
 
     let handleSaveCar = () => {

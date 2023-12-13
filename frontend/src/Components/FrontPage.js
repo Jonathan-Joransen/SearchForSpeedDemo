@@ -13,10 +13,6 @@ let FrontPage = (props) => {
         <>
             <Header pages={props.pages} logoutUser={props.logoutUser} {...props} />
             <Landing {...props} searchRef={searchRef} />
-            <FrontTitle {...props}/>
-            <div className={frontPageStyles.searchContainer}>
-                <Search {...props}  searchRef={searchRef}/>
-            </div>
             <Footer {...props} />
         </>
     )
