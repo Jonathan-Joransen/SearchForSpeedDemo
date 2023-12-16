@@ -59,13 +59,6 @@ let TimeResult = (props) => {
     return (
         <div className={resultStyles.resultContainer}>
             <div className={resultStyles.resultWrapper}>
-                {
-                    props.car.image ?
-                        <div className={resultStyles.resultImageContainer}>
-                            <img src={props.car.image} alt="photo of car" />
-                        </div>
-                        : <div className={resultStyles.noImageSpace} />
-                }
                 <div className={resultStyles.resultDetailsContainer}>
                     <div className={resultStyles.resultTitle}>{`${props.car.year} ${props.car.make} ${props.car.model.substring(0,1).toUpperCase()}${props.car.model.substring(1)}` }</div>
                     <div className={resultStyles.resultDetailsAndDesc}>

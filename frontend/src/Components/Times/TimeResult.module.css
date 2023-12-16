@@ -1,7 +1,6 @@
 .resultContainer {
   margin: 0 auto;
   padding: 1em;
-  max-height: 42vh;
   box-sizing: border-box;
   width: 100%;
 }
@@ -15,7 +14,6 @@
   border-radius: 25px;
   box-shadow: 0 0.25em 1em rgb(0 0 0 / 10%);
   max-width: 100%;
-  max-height: 52vh;
   box-sizing: border-box;
 }
 
@@ -23,35 +21,15 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  max-height: 14vh;
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
 }
 
-.noImageSpace {
-  height: 3vh;
-  box-sizing: border-box;
-  width: 100%;
-}
-
-.resultImageContainer img {
-  border-radius: 25px 25px 0px 0px;
-  height: 14vh;
-  width: 100%;
-  box-shadow: -0px 1px 1px rgba(0, 0, 0, 0.4);
-  object-fit: cover;
-  filter: brightness(95%);
-}
-
-.resultDetailsContainer {
-  max-height: 28vh;
-}
-
 .resultTitle {
   padding: 0.8em 0;
   padding-left: 0.5em;
-  font-size: 1.2em;
+  font-size: 3vw;
   font-weight: bold;
   width: 100%;
 }
@@ -62,10 +40,12 @@
   padding: 3em;
   font-size: 2em;
 }
+
 .resultDetailsAndDesc {
   display: flex;
-  padding: 0.4em 0.5em;
+  padding: 0.4rem .1rem;
   padding-bottom: 0.8rem;
+  font-size: 2.2vw;
   gap: 0.5em;
   align-items: center;
   justify-content: center;
@@ -93,15 +73,7 @@
   width: 50%;
   color: rgba(0, 0, 0, 0.8);
 }
-.resultPlacement {
-  position: absolute;
-  right: 0;
-  text-shadow: 2px 2px white;
-  font-weight: bold;
-  z-index: 9;
-  font-size: 1.6em;
-  padding-right: 1em;
-}
+
 .saveButtonWrapper {
   position: absolute;
   right: 0;
@@ -151,12 +123,8 @@
   color: rgba(0, 0, 0, 0.5);
 }
 
-@media (min-width: 38rem) {
-    .noImageSpace {
-        height: 1vh;
-    }
+@media (min-width: 865px) {
   .resultWrapper {
-    padding: 0 6rem;
-    max-height: 25vh;
+    padding: 1rem 6rem;
   }
 }

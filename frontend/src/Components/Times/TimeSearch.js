@@ -134,9 +134,15 @@ const TimeSearch = (props) => {
         } else {
             setFieldsValid()
         }
-        console.log(model, year)
-        let carTimes = StaticCars.filter(x => x.model.toLowerCase() === model.toLowerCase() && String(x.year) === year)
-        console.log(carTimes)
+
+        let carTimes = null;
+        if (!year || year.toLowerCase() === "all") {
+            carTimes = StaticCars.filter(x => x.model.toLowerCase() === model.toLowerCase());
+        }
+        else {
+            carTimes = StaticCars.filter(x => x.model.toLowerCase() === model.toLowerCase() && String(x.year) === year);
+        }
+
         props.setCars(carTimes)
     }
 
